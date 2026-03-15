@@ -245,7 +245,7 @@ export default function App() {
     setRemovingBg(true);
 
     try {
-      const { removeBackground } = await import("https://esm.sh/@imgly/background-removal@1.4.5");
+      const { removeBackground } = await import(/* webpackIgnore: true */ "https://esm.sh/@imgly/background-removal@1.4.5")
       const blob = await removeBackground(file, {
         publicPath: "https://esm.sh/@imgly/background-removal@1.4.5/dist/",
       });
@@ -266,7 +266,7 @@ export default function App() {
       try {
         const res = await fetch(MINJU_IMG);
         const blob = await res.blob();
-        const { removeBackground } = await import("https://esm.sh/@imgly/background-removal@1.4.5");
+        const { removeBackground } = await import(/* webpackIgnore: true */ "https://esm.sh/@imgly/background-removal@1.4.5")
         const out = await removeBackground(blob, { publicPath: "https://esm.sh/@imgly/background-removal@1.4.5/dist/" });
         setPhoto(URL.createObjectURL(out));
       } catch (e) {
